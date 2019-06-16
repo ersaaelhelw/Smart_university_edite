@@ -11,5 +11,6 @@ public class AttendanceDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_details);
+        setTitle("Absence Details");
     }
 }

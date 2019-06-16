@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Smart_University-master.iml" filepath="$PROJECT_DIR$/Smart_University-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Smart_University_edite.iml" filepath="$PROJECT_DIR$/Smart_University_edite.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

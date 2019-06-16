@@ -23,6 +23,7 @@ public class AddSubjectActivity extends AppCompatActivity{
 
     public static List<Subjects> subjectsAdded;
 
+
     RecyclerView subRV;
     List<Subjects> subjects;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -30,8 +31,11 @@ public class AddSubjectActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_subject);
+        setTitle("Choose Subjects");
+
         subRV = findViewById(R.id.subRV);
         subjects = new ArrayList<>();
+
         final SubjectAdapter subjectAdapter = new SubjectAdapter(this,subjects);
         subRV.setLayoutManager(new LinearLayoutManager(this));
         subRV.setHasFixedSize(false);

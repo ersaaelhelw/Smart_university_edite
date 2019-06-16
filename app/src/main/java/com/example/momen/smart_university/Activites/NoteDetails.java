@@ -15,7 +15,7 @@ public class NoteDetails extends AppCompatActivity {
         setContentView(R.layout.activity_note_details);
         doc = findViewById(R.id.noteDoctor);
         body = findViewById(R.id.body);
-
+        setTitle("Message");
         doc.setText(getIntent().getStringExtra("doc"));
         body.setText(getIntent().getStringExtra("body"));
     }
