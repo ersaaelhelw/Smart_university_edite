@@ -39,6 +39,13 @@ import java.util.List;
  */
 public class Wed extends Fragment implements table_adapter.TableClickListener {
 
+    Fragment frg;
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        frg = this;
+    }
+
 
     public static Wed getType(String docOrStu) {
 
@@ -113,8 +120,8 @@ public class Wed extends Fragment implements table_adapter.TableClickListener {
                     });
         }else if (type.equals("doc")){
             GetTableDocFactory docFactory = new GetTableDocFactory(db, DoctorName.doctorName);
-            GetTableModel tableModel = ViewModelProviders.of(getActivity(),docFactory).get(GetTableModel.class);
-            tableModel.getTableDoc().observe(getActivity(), new Observer<List<TableEntry>>() {
+            GetTableModel tableModel = ViewModelProviders.of(frg,docFactory).get(GetTableModel.class);
+            tableModel.getTableDoc().observe(frg, new Observer<List<TableEntry>>() {
                 @Override
                 public void onChanged(@Nullable List<TableEntry> tableEntries) {
                     for (int i=0;i<tableEntries.size();i++){

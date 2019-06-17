@@ -19,7 +19,6 @@ public class Create_Quiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Create Quiz");
         setContentView(R.layout.activity_create__quiz);
         editText  = findViewById(R.id.quiz_name);
         Button button=findViewById(R.id.next);

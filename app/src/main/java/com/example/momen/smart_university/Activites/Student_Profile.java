@@ -166,8 +166,8 @@ public class Student_Profile extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.student_tasks) {
-            //Intent intent= new Intent(this,Answer_question.class);
-            //startActivity(intent);
+            Intent intent= new Intent(this,StudentDegreesActivity.class);
+            startActivity(intent);
         } else if (id == R.id.student_absence) {
             Intent intent= new Intent(this,AbsenceDetailsActivity.class);
             startActivity(intent);

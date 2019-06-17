@@ -6,9 +6,17 @@
     tools:context="com.example.momen.smart_university.fragment.Doctors">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/admin_doctor_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/admin_doctor_recycler">
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -18,5 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 </android.support.constraint.ConstraintLayout>

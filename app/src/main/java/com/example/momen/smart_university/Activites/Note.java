@@ -31,7 +31,7 @@ public class Note extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
         note = findViewById(R.id.note);
-setTitle("Notes");
+setTitle("Send Note");
         Spinner subject =findViewById(R.id.spinner_subjects);
         ArrayAdapter<CharSequence>arrayAdapter=ArrayAdapter.createFromResource(this,R.array.subjects,android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

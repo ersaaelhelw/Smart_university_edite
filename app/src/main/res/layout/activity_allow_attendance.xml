@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".Activites.AllowAttendance">
 
@@ -11,37 +12,40 @@
         android:id="@+id/code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif"
+        android:textAlignment="center"
+        android:textColor="@color/PrimaryText"
+        android:textColorHint="@color/PrimaryText"
+        android:textSize="60sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="generated code"
-        android:textColorHint="@color/PrimaryText"
-        android:textStyle="bold"
-        android:textSize="60sp"
-        android:textColor="@color/PrimaryText"
-        android:textAlignment="center"
-        android:fontFamily="sans-serif"/>
+        tools:text="generated code" />
 
     <Button
         android:id="@+id/generate_code"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
 
-        android:layout_marginTop="90dp"
-        android:background="@drawable/carve"
-        android:text="generate"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@color/background"
+        android:text="Generate Code"
+        android:textAllCaps="false"
+        android:textColor="@color/PrimaryText"
         android:textSize="20sp"
-        android:textColor="@color/cardview_light_background"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/code" />
 
@@ -49,11 +53,12 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/generate_code"
+        app:layout_constraintStart_toStartOf="@+id/generate_code"
         app:layout_constraintTop_toBottomOf="@+id/generate_code">
 
         <RadioGroup
@@ -67,25 +72,46 @@
                 android:id="@+id/allow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:layout_marginLeft="0dp"
-                android:textSize="14sp"
+                android:layout_marginEnd="10dp"
+                android:text="Allow Attendance"
+                android:textStyle="bold"
+                android:textColor="@color/PrimaryText"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
 
-                android:text="Allow Attendance" />
+                android:textSize="20sp"
+                android:layout_marginRight="10dp" />
 
             <RadioButton
                 android:id="@+id/not_allow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="10dp"
-                android:textSize="14sp"
+                android:layout_marginEnd="10dp"
+                android:text="Don't Allow Attendance"
 
-                android:text="Don't Allow Attendance" />
+                android:textStyle="bold"
+                android:textColor="@color/PrimaryText"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+
+                android:textSize="20sp"
+                android:layout_marginRight="10dp" />
         </RadioGroup>
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/generate_code"
+        app:layout_constraintStart_toStartOf="@+id/generate_code"
+        app:layout_constraintTop_toBottomOf="@+id/generate_code"
+        app:srcCompat="@drawable/interactive" />
 
 </android.support.constraint.ConstraintLayout>

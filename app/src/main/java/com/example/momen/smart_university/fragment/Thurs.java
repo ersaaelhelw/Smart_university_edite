@@ -39,6 +39,12 @@ import java.util.List;
  */
 public class Thurs extends Fragment implements table_adapter.TableClickListener{
 
+    Fragment frg;
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        frg = this;
+    }
 
     public static Thurs getType(String docOrStu) {
 
@@ -89,9 +95,9 @@ public class Thurs extends Fragment implements table_adapter.TableClickListener{
                             }
 
                             GetTableStudentFactory studentFactory = new GetTableStudentFactory(db,list);
-                            GetTableModelStu modelStu = ViewModelProviders.of(getActivity(),studentFactory).get(GetTableModelStu.class);
+                            GetTableModelStu modelStu = ViewModelProviders.of(frg,studentFactory).get(GetTableModelStu.class);
                             //Toast.makeText(getContext(), "List = "+String.valueOf(list.size()), Toast.LENGTH_SHORT).show();
-                            modelStu.getTableStudent().observe(getActivity(), new Observer<List<TableEntry>>() {
+                            modelStu.getTableStudent().observe(frg, new Observer<List<TableEntry>>() {
                                 @Override
                                 public void onChanged(@Nullable List<TableEntry> tableEntries) {
                                     for (int i=0;i<tableEntries.size();i++){

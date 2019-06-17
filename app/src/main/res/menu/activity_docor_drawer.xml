@@ -6,17 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/table"
-            android:title="table" />
+            android:title="Table" />
         <item
             android:id="@+id/task"
-            android:title="tasks" />
+            android:title="Tasks" />
         <item
             android:id="@+id/note"
-            android:title="note" />
+            android:title="Note" />
         <item
             android:id="@+id/doctor_absence"
-            android:title="Absence" />
-
+            android:title="Absence Details" />
+        <item
+            android:id="@+id/degree"
+            android:title="Degrees" />
     </group>
 
     <item android:title="Communicate">

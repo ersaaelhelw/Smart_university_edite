@@ -127,9 +127,9 @@ public class DocorActivity extends AppCompatActivity
             intent.putExtra("type","doc");
             startActivity(intent);
             // Handle the camera action
-        } else if (id == R.id.task) {
-            //Intent intent = new Intent(this,Quiz.class);
-            //startActivity(intent);
+        }else if (id == R.id.task) {
+            Intent intent = new Intent(this,DegreesListActivity.class);
+            startActivity(intent);
         } else if (id == R.id.note) {
 
             Intent intent = new Intent(this,Note.class);

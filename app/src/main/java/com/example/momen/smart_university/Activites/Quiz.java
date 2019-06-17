@@ -33,6 +33,7 @@ public class Quiz extends AppCompatActivity implements QuizAdapter.QuizClickList
         // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // setSupportActionBar(toolbar);
         final RecyclerView recyclerView = findViewById(R.id.recycler_quiz);
+        setTitle("Create Quiz");
         recyclerView.setLayoutManager(new LinearLayoutManager(Quiz.this, LinearLayoutManager.VERTICAL, false));
         subName = getIntent().getStringExtra("subName");
         docName = getIntent().getStringExtra("docName");

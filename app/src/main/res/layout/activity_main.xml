@@ -4,180 +4,151 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryLight"
+    android:background="@color/background"
 
     tools:context="com.example.momen.smart_university.Activites.MainActivity">
 
-    <ImageButton
-        android:id="@+id/admin"
-        android:layout_width="118dp"
-        android:layout_height="128dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/carve2"
-        android:onClick="admin"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/admin"
-        tools:ignore="OnClick"
-        android:layout_marginRight="70dp"
-        android:layout_marginLeft="24dp" />
-
-    <ImageButton
-        android:id="@+id/doctor"
-        android:layout_width="118dp"
-        android:layout_height="128dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/carve2"
-        android:onClick="doc"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/student"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/doctor" />
-
-    <ImageButton
-        android:id="@+id/student"
-        android:layout_width="118dp"
-        android:layout_height="128dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/carve2"
-        android:onClick="click"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toStartOf="@+id/doctor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/student" />
-
-    <TextView
-        android:id="@+id/textView2"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_height="380dp"
+
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:text="Doctor"
-        android:textColor="@color/PrimaryText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/doctor"
-        app:layout_constraintStart_toStartOf="@+id/doctor"
-        app:layout_constraintTop_toBottomOf="@+id/doctor" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:text="Student"
-        android:textColor="@color/PrimaryText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/student"
-        app:layout_constraintStart_toStartOf="@+id/student"
-        app:layout_constraintTop_toBottomOf="@+id/student" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Admin"
-        android:textColor="@color/PrimaryText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/admin"
-        app:layout_constraintStart_toStartOf="@+id/admin"
-        app:layout_constraintTop_toBottomOf="@+id/admin" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Teaching Assistant"
-        android:textColor="@color/PrimaryText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Employee"
-        android:textColor="@color/PrimaryText"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
-        app:layout_constraintStart_toStartOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="118dp"
-        android:layout_height="128dp"
-
         android:layout_marginBottom="16dp"
-
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/carve2"
-        android:scaleType="centerCrop"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView16"
+        app:layout_constraintStart_toStartOf="@+id/imageView16"
+        app:layout_constraintTop_toBottomOf="@+id/imageView16"
+        tools:ignore="MissingConstraints">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="351dp"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/admin"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/carve2"
+                android:onClick="admin"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/admin"
+                tools:ignore="OnClick" />
+
+            <ImageButton
+                android:id="@+id/doctor"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/carve2"
+                android:onClick="doc"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="@+id/admin"
+                app:layout_constraintStart_toStartOf="@+id/admin"
+                app:layout_constraintTop_toBottomOf="@+id/admin"
+                app:srcCompat="@drawable/doctor" />
+
+            <ImageButton
+                android:id="@+id/student"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/carve2"
+                android:onClick="click"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="@+id/doctor"
+                app:layout_constraintStart_toStartOf="@+id/doctor"
+                app:layout_constraintTop_toBottomOf="@+id/doctor"
+                app:srcCompat="@drawable/student" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Doctor"
+                android:textColor="@color/PrimaryText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/doctor"
+                app:layout_constraintEnd_toEndOf="@+id/textView5"
+                app:layout_constraintStart_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/doctor" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Student"
+                android:textColor="@color/PrimaryText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/student"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/student" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                android:text="Admin"
+                android:textColor="@color/PrimaryText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/admin"
+                app:layout_constraintStart_toEndOf="@+id/admin"
+                app:layout_constraintTop_toTopOf="@+id/admin" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@drawable/el_moeed" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="118dp"
-        android:layout_height="128dp"
-
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/carve2"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toStartOf="@+id/admin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/el_aamel" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 </android.support.constraint.ConstraintLayout>

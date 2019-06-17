@@ -11,8 +11,10 @@ import android.widget.Toast;
 
 import com.example.momen.smart_university.R;
 import com.example.momen.smart_university.firebase.Doctor.Questions;
+import com.example.momen.smart_university.firebase.Doctor.QuizDegreesList;
 import com.example.momen.smart_university.firebase.Doctor.QuizModel;
 import com.example.momen.smart_university.firebase.Doctor.subject;
+import com.example.momen.smart_university.firebase.Student.Degree;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Answer_question extends AppCompatActivity {
+    private float degree=0f;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference reference;
     private List<String> attendances;
@@ -40,6 +43,9 @@ public class Answer_question extends AppCompatActivity {
     private boolean checkItem;
     String docName;
     String subName;
+    QuizDegreesList quizDegreesList;
+    DatabaseReference degree_reference;
+    DatabaseReference student_degree;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,10 +62,13 @@ public class Answer_question extends AppCompatActivity {
         count=0;
         docName = getIntent().getStringExtra("docName");
         subName = getIntent().getStringExtra("subName");
+        quizDegreesList=new QuizDegreesList(StudentName.name,0f);
         //firebase
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference().child("Doctors").child(docName).child("Subjects");
-
+        degree_reference=firebaseDatabase.getReference().child("Degrees").child(subName);
+        student_degree=firebaseDatabase.getReference().child("Students").child(StudentName.year).child(StudentName.name).child("subjects")
+                .child(subName);
         attendances = new ArrayList<>();
         questionsList = new ArrayList<>();
         quizModelList = new ArrayList<>();
@@ -98,14 +107,16 @@ public class Answer_question extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                        QuizModel quizModel = snapshot.getValue(QuizModel.class);
-                        if (quizModel.getPushed()) {
-                            quizModelList.add(quizModel);
-                            QuizModel model = quizModelList.get(getIndex(StudentName.name)%quizModelList.size());
-                            questionsList = model.getQuestions();
-                            populateUI();
-                        }
+                    QuizModel quizModel = snapshot.getValue(QuizModel.class);
+                    if (quizModel.getPushed()) {
+                        quizModelList.add(quizModel);
+                        QuizModel model = quizModelList.get(getIndex(StudentName.name)%quizModelList.size());
+                        questionsList = model.getQuestions();
+                        degree=model.getTotal_degree()/questionsList.size();
+                        populateUI();
                     }
+
+                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -119,40 +130,80 @@ public class Answer_question extends AppCompatActivity {
             e.printStackTrace();
         }
 
-       //QuizModel quizModel =  quizModelList.get(getIndex(StudentName.name)%(quizModelList.size()-1));
-       //questionsList = quizModel.getQuestions();
+        //QuizModel quizModel =  quizModelList.get(getIndex(StudentName.name)%(quizModelList.size()-1));
+        //questionsList = quizModel.getQuestions();
         //Toast.makeText(this, String.valueOf(questionsList.size()), Toast.LENGTH_SHORT).show();
 
 
 
 
 
-       next.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               checked();
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checked();
 
-               if(checkItem)
-                   Toast.makeText(Answer_question.this, "good", Toast.LENGTH_SHORT).show();
-               else
-                   Toast.makeText(Answer_question.this, "false", Toast.LENGTH_SHORT).show();
-               if (count==questionsList.size()-2||questionsList.size()==1)
-               {
-                   next.setText("Finish");
-               }
+                if(checkItem)
+                    quizDegreesList.setStudent_degree(quizDegreesList.getStudent_degree()+degree);
+                else
+                if (count==questionsList.size()-2||questionsList.size()==1)
+                {
+                    next.setText("Finish");
+                }
 
-               if (count==questionsList.size()-1)
-                   finish();
-               else
-              {
-               count++;
-               reset();
-               populateUI();
-               //Toast.makeText(Answer_question.this, String.valueOf(count)+" "+String.valueOf(questionsList.size()-1), Toast.LENGTH_SHORT).show();
+                if (count==questionsList.size()-1) {
+                    degree_reference.push().setValue(quizDegreesList);
+                    student_degree.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-              }
-           }
-       });
+                            Degree degree = dataSnapshot.getValue(Degree.class);
+                            if (degree != null) {
+                                if (degree.getQuiz_degree() == 0) {
+                                    student_degree.child("degree").child("quiz_degree").setValue(
+                                            quizDegreesList.getStudent_degree());
+                                } else {
+                                    student_degree.child("degree").child("quiz_degree").setValue((degree.getQuiz_degree() +
+                                            quizDegreesList.getStudent_degree()) / 2);
+
+                                }
+                            }else
+                                Toast.makeText(Answer_question.this, "null", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+
+                        @Override
+                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
+                else
+                {
+                    count++;
+                    reset();
+                    populateUI();
+                    //Toast.makeText(Answer_question.this, String.valueOf(count)+" "+String.valueOf(questionsList.size()-1), Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
 
     }
 
@@ -212,4 +263,3 @@ public class Answer_question extends AppCompatActivity {
 
     }
 }
-

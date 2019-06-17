@@ -18,16 +18,11 @@ public class QuizOrAttendeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_or_attende);
         quize = findViewById(R.id.quize_btn);
         attend = findViewById(R.id.attendance_btn);
-
+        setTitle("Options");
         final String type = getIntent().getStringExtra("type");
         final String docName = getIntent().getStringExtra("docName");
         final String subName = getIntent().getStringExtra("subName");
-        quize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
         attend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +41,7 @@ public class QuizOrAttendeActivity extends AppCompatActivity {
                     intent.putExtra("subName",subName);
                     startActivity(intent);
                 }
+                finish();
             }
         });
 
@@ -65,6 +61,7 @@ public class QuizOrAttendeActivity extends AppCompatActivity {
                     intent.putExtra("subName",subName);
                     startActivity(intent);
                 }
+                finish();
             }
         });
 
